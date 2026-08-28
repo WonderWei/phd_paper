@@ -1,0 +1,40 @@
+\chapter{面向持久内存的硬件辅助数据寻址机制}
+
+\section{引言}
+从写时复制的非原地更新出发，说明数据位置变化及显式映射元数据带来的空间和访问开销。
+\section{问题分析与设计目标}
+\subsection{写时复制的数据路径与元数据开销}
+\subsection{页粒度映射与缓存行粒度更新的矛盾}
+\subsection{设计目标与适用边界}
+
+\section{ReCoW 总体设计}
+说明用户态事务库、内核组件、地址映射和持久化元数据之间的关系。
+\section{基于虚拟地址重映射的数据寻址方法}
+研究如何将软件维护的数据位置关系转移到已有的虚拟—物理地址映射机制。
+\section{混合粒度数据跟踪机制}
+\subsection{页粒度地址映射}
+\subsection{缓存行粒度更新记录}
+\subsection{混合元数据组织}
+
+\section{内核—用户协同管理机制}
+\subsection{系统调用与批量请求接口}
+\subsection{惰性重映射与批处理优化}
+\subsection{元数据检查点}
+
+\section{并发控制与一致性保证}
+\subsection{并发访问协调}
+\subsection{提交顺序与原子可见性}
+\subsection{崩溃一致性与恢复流程}
+
+\section{实验评估}
+\subsection{实验环境、工作负载与对比系统}
+\subsection{整体性能与扩展性}
+\subsection{元数据规模与访问成本}
+\subsection{写放大与持久化开销}
+\subsection{关键机制消融实验}
+\subsection{PM/CXL 时延敏感性分析}
+
+\section{本章讨论}
+讨论页粒度重映射的适用范围、内核参与成本与可移植性。
+\section{本章小结}
+从数据表示层总结 ReCoW 如何缓解动态数据位置与软件显式寻址之间的失配，并引出远程环境下的数据组织问题。

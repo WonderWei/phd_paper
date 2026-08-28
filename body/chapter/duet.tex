@@ -1,0 +1,48 @@
+\chapter{面向云原生解耦数据库的资源感知缓存管理机制}
+
+\section{引言}
+说明计算、内存和存储资源独立扩展后，传统单体缓存管理器的任务放置不再匹配资源属性。
+\section{问题分析与设计目标}
+\subsection{云原生 CN--MN--SN 架构与资源非对称性}
+\subsection{MN 中心设计的 CPU 弹性失配}
+\subsection{CN 中心设计的带宽竞争}
+\subsection{容量悬崖与数据迂回传输}
+\subsection{设计目标与适用边界}
+
+\section{缓存管理任务的资源属性分析}
+将替换策略、前台换入、脏页卸载和后台写回分别归纳为计算密集、时延敏感或带宽密集任务。
+\section{Duet 总体架构}
+\subsection{Primo 与 Secondo 的功能划分}
+\subsection{控制路径与数据路径}
+\subsection{页面状态与生命周期}
+
+\section{CN 侧缓存策略与前台换入}
+\subsection{替换策略执行}
+\subsection{批量远程元数据访问}
+\subsection{缺页处理与页面准入}
+
+\section{非阻塞脏页卸载与 MN 侧异步写回}
+\subsection{脏页暂存}
+\subsection{牺牲页预留与队列发布}
+\subsection{后台异步持久化}
+
+\section{元数据管理与分布式协调}
+\subsection{远程元数据目录}
+\subsection{TxLock 事务访问协调}
+\subsection{IOLock 页面迁移协调}
+\subsection{前台事务与后台写回的并发关系}
+
+\section{持久性与故障恢复}
+明确确认边界、脏页所有权、队列恢复和节点故障处理。
+\section{实验评估}
+\subsection{实验环境、工作负载与对比系统}
+\subsection{SmallBank、TPC-C 与 TATP 整体性能}
+\subsection{缓存容量与写回压力敏感性}
+\subsection{MN CPU 与网络带宽敏感性}
+\subsection{延迟分解与资源利用率}
+\subsection{TxLock/IOLock 与批处理机制消融实验}
+
+\section{本章讨论}
+讨论资源非对称假设、故障模型、多个 MN/SN 扩展和公平性问题。
+\section{本章小结}
+从管理功能层总结按资源属性拆分缓存管理任务所带来的资源协同效果。
