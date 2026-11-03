@@ -50,7 +50,7 @@ V3.1.4x changes:
 
 Thesis V3.1.3x changes:
 
-1. 支持双导师. 默认支持单导师，双导师设置见`body/cover.tex`. 感谢[lxysl](https://github.com/lxysl)的PR.
+1. 支持双导师. 默认支持单导师，双导师设置见`cover.tex`. 感谢[lxysl](https://github.com/lxysl)的PR.
 
 2. 红色或黑色抬头可在导言区进行设置，例如`\documentclass[draftformat,blackhead]{HUSTthesis}`
 
@@ -64,7 +64,7 @@ In this version, a mini example of the HUST thesis is provided. Compared with th
 
     1. Reorganized the file structure.
 
-    2. Extract the table of the defence committee members from`HUSTthesis.cls` to `body/cover.tex`
+    2. Extract the table of the defence committee members from`HUSTthesis.cls` to `cover.tex`
 
     3. Many updates to`HUSTthesis.cls`, `HUSTtils.sty`, and `HUSTThesis.bst`
 
