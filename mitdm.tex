@@ -2,48 +2,72 @@
 \chapter{面向解耦内存的网络感知自适应多版本数据组织机制}
 
 \section{引言}
-说明解耦内存中相关版本读取需要兼顾远程往返次数、传输字节数、容量弹性和被动内存节点约束。
+说明解耦内存中相关版本读取需要兼顾远程往返次数、传输字节数、容量弹性和被动内存节点约束。链式版本布局下读取一个长版本需要逐跳远程访问，往返次数随版本长度线性增长\cite{zhangMotor2024}；固定连续布局虽可一次读完，却在版本长度分布偏斜时造成容量与传输放大\cite{binnigEnd2016,zhangMotor2024}。
 \section{问题分析与设计目标}
 \subsection{解耦内存环境下的数据访问特征}
+远程访问的往返时延远高于本地访问，单次访问的可用带宽又随并发增加而下降\cite{binnigEnd2016,zamanianEnd2017}，内存节点通常不参与计算，只能提供单边读写能力\cite{weiCharacterizing2021,caiEfficient2018}。
 \subsection{链式版本布局的串行往返问题}
+链式布局把版本组织为指针相连的节点，读取时必须串行追踪，往返次数直接叠加为时延\cite{zhangMotor2024,tuSpeedy2013}。
 \subsection{固定连续布局的容量与传输放大问题}
+固定连续布局为每个版本预留最大空间，读放大与空间浪费同时出现\cite{zhangMotor2024}；在版本长度分布长尾明显时，预留策略难以同时满足容量与带宽约束\cite{caiEfficient2018}。
 \subsection{设计目标与适用边界}
+设计目标是在往返次数、传输量与空间浪费三者之间按运行环境取得平衡\cite{binnigEnd2016,zamanianChiller2020}。
 
 \section{远程多版本数据访问成本模型}
-从远程往返次数、传输量和空间浪费三个维度建立版本块粒度成本模型；本节的参数、权重和验证方法需结合后续实验进一步确定。
+从远程往返次数、传输量和空间浪费三个维度建立版本块粒度成本模型；本节的参数、权重和验证方法需结合后续实验进一步确定。成本模型的构建方式参照远程事务与数据划分研究中的代价建模方法\cite{zamanianChiller2020,binnigEnd2016}。
 \section{层次化块式多版本数据组织}
 \subsection{块内连续布局}
+块内连续布局把相邻版本放在同一连续区域，使一次远程读取可覆盖多个版本\cite{zhangMotor2024}。
 \subsection{块间动态链接}
+块间以指针动态链接，保留链式布局的容量弹性\cite{zhangMotor2024,tuSpeedy2013}。
 \subsection{动态容量扩展}
+块容量按实际写入量渐进扩展，避免一次性预留\cite{caiEfficient2018,zhangMotor2024}。
 \subsection{批量远程版本读取}
+批量读取把块内多个版本合并为一次单边读请求，摊薄往返开销\cite{caiEfficient2018,mitchellUsing2013}。
 
 \section{自适应版本块粒度调节机制}
 \subsection{版本深度与访问特征统计}
+按版本深度与访问频次统计各数据项的版本分布，作为粒度决策输入\cite{zamanianChiller2020}。
 \subsection{候选版本块粒度}
+候选粒度覆盖若干固定档位，以在实现复杂度与适应能力之间折中\cite{binnigEnd2016}。
 \subsection{基于成本模型的在线决策}
+在线决策以成本模型比较各候选粒度的预期往返与传输代价\cite{zamanianChiller2020,binnigEnd2016}。
 \subsection{无迁移的渐进式扩展策略}
+扩展策略只追加新块而不迁移旧块，从而避免扩展过程产生额外远程写\cite{zhangMotor2024}。
 
 \section{轻量级版本块索引}
 \subsection{稀疏索引组织}
+稀疏索引只记录块边界，索引项数量与版本数解耦\cite{zuoOne2021,wangSherman2022}。
 \subsection{计算节点本地索引缓存}
+索引缓存在计算节点侧，避免每次读取都访问内存节点\cite{luoSmart2023,anMarlin2023}。
 \subsection{慢路径回退与正确性}
+索引未命中时回退到远端的完整索引结构，保证正确性\cite{wangOptimizing2024,liRolex2023}。
 \subsection{索引维护开销}
+索引维护需与版本写入合并为批量操作，否则会引入额外远程写\cite{minSephash2024,luDex2024}。
 
 \section{异步元数据同步机制}
-说明元数据更新、可见性和远程操作批处理过程。
+说明元数据更新、可见性和远程操作批处理过程。元数据更新以批处理方式异步同步\cite{weiUnifying2021,chenFast2016}，可见性由时间戳与提交顺序共同决定\cite{weiUnifying2021}，近期亦有面向云环境的 RDMA 并发控制协议研究\cite{wangRdma2023}。
 \section{数据版本回收机制}
 \subsection{本地与全局最老活跃事务}
+回收以最老活跃事务为下界，本地与全局分别维护以减少协调开销\cite{bernsteinConcurrency1987,tuSpeedy2013}。
 \subsection{读者保护}
+读者保护通过版本引用计数或时间戳区间实现\cite{luSnow2016,weiUnifying2021}。
 \subsection{版本块回收}
+版本块整块回收可显著降低回收路径的远程访问次数\cite{zhangMotor2024}。
 
 \section{持久性与故障恢复扩展}
 \subsection{核心状态与辅助状态分类}
+核心状态为版本数据本身，辅助状态为索引与统计信息，两者分离是降低持久化开销的前提\cite{correiaRomulus2018,zhangFord2022}。
 \subsection{原子发布点}
+原子发布点确定版本可见的唯一时刻，从而避免恢复时出现部分可见\cite{luScythe2024,zhangFord2022}。
 \subsection{辅助索引重建}
+辅助索引在恢复时由核心状态重建，无需持久化\cite{assaTl4x2023}。
 \subsection{故障恢复流程}
+恢复流程以发布点为准回放，并按节点粒度处理故障域\cite{zhangFord2022,luScythe2024}。
 
 \section{实验评估}
 \subsection{实验环境、工作负载与对比系统}
+对比系统包括 MOTOR\cite{zhangMotor2024}、FORD\cite{zhangFord2022}、Scythe\cite{luScythe2024}、FaRM\cite{dragojevicFarm2014}、DrTM+H\cite{chenFast2016}、FaSST\cite{kaliaFasst2016}、Opax\cite{shamisFast2019}、Xenic\cite{schuhXenic2021}与 Aurogon\cite{jiangAurogon2022}，远程访问由 RDMA 提供\cite{kaliaUsing2014,kaliaDesign2016,guoRdma2016}。
 \subsection{整体性能与可扩展性}
 \subsection{网络往返时延敏感性}
 \subsection{网络带宽敏感性}
@@ -51,8 +75,7 @@
 \subsection{自适应粒度与固定粒度对比}
 \subsection{成本模型准确性}
 \subsection{索引、回收与恢复开销}
-
 \section{本章讨论}
-明确自适应机制是博士论文拟扩展内容，讨论统计滞后、策略振荡和工作负载突变等风险。
+明确自适应机制是博士论文拟扩展内容，讨论统计滞后、策略振荡和工作负载突变等风险。粒度切换过于频繁会引起策略振荡，需要在决策中加入滞回与冷却窗口\cite{zamanianChiller2020,binnigEnd2016}；热点争用下的版本组织还需与并发控制协议协同考虑\cite{guoReleasing2021,dingCentiman2015}。
 \section{本章小结}
 从数据布局层总结“局部连续、全局弹性”的组织方式及其对网络和版本分布的适应能力。

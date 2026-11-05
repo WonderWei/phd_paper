@@ -3,23 +3,23 @@
 
 \section{研究背景与意义}
 \subsection{新型内存介质与持久内存的发展}
-说明持久内存、CXL 扩展内存等介质对容量、持久性和访问路径的改变，以及这些变化对数据库数据组织方式提出的新要求。
+说明持久内存、CXL 扩展内存等介质对容量、持久性和访问路径的改变，以及这些变化对数据库数据组织方式提出的新要求。相变存储器、自旋转移矩存储器、忆阻器、铁电存储器等非易失介质的可行性最早由器件层面研究给出\cite{leeArchitecting2009,wongPhase2010,kawaharaScalable2011,strukovMissing2008,mikolajickFeram2001}，多值单元的组织与缓冲策略亦被系统研究\cite{yoonEfficient2014}；3D XPoint 与 Intel Optane DC 持久内存把字节寻址的持久存储带入商用平台\cite{hadyPlatform2017,izraelevitzBasic2019}，其带宽、时延与写特性已被系统刻画\cite{yangEmpirical2020,xiangCharacterizing2022,wangCharacterizing2020}；持久内存的编程模型可参考专门著作\cite{scargallProgramming2020}，其安全侧信道问题也已被指出\cite{liuSide2023}。CXL 以内存语义把设备附加内存接入主机地址空间\cite{cxlConsortium2025,jungHello2022}，并进一步支持内存池化与分层\cite{liPond2023,zhongManaging2024}；XL-Flash 等介质与 CXL SSD 原型把闪存侧存储也纳入同一语义\cite{kioxiaXlflash2024,kennedySamsung2022}。
 \subsection{远程内存与解耦内存架构}
-介绍 RDMA、CXL 内存池和计算—内存解耦架构，分析远程访问时延、带宽和内存节点计算能力约束。
+介绍 RDMA、CXL 内存池和计算—内存解耦架构，分析远程访问时延、带宽和内存节点计算能力约束。RDMA 的单边/双边原语及其在数据中心规模部署的成本特征已较为明确\cite{guoRdma2016,kaliaDesign2016,kaliaUsing2014,kaliaFasst2016}，并在语义上足以支撑复杂协议\cite{redaRdma2022}；基于 RDMA 的共享内存数据库与持久内存副本方案也已出现\cite{wangCase2022,wangReplicating2023}；解耦内存从刀片服务器内的内存扩展\cite{limDisaggregated2009}发展为分离式操作系统视图\cite{shanLeGo2018}、软硬件协同的远程内存系统\cite{guoClio2022,aguileraRemote2018}与前程内存\cite{guEfficient2017,amaroCan2020,ruanAifm2020}，CXL 侧则出现了内存池化、分层管理与设备直连方案\cite{liPond2023,zhongManaging2024,fridmanCxl2023,goukDirectcxl2022}。
 \subsection{云原生数据库中的计算—内存—存储解耦}
-说明计算节点（CN）、内存节点（MN）和存储节点（SN）独立扩展的趋势，以及资源非对称性带来的管理功能放置问题。
+说明计算节点（CN）、内存节点（MN）和存储节点（SN）独立扩展的趋势，以及资源非对称性带来的管理功能放置问题。内存数据库侧的 SAP HANA\cite{farberSap2012}与 HTAP 侧的 TiDB\cite{huangTidb2020}先后把内存与分布式扩展推到极致，Aurora\cite{verbitskiAmazon2017}、Socrates\cite{antonopoulosSocrates2019}与 PolarDB Serverless\cite{caoPolardb2021}则分别代表存算分离、远程日志服务与三层解耦的工程路线；其后又出现多主架构\cite{yangPolardb2024,depoutovitchTaurus2023}、计算—内存—存储三层解耦的产品化实现\cite{liGaussdb2024}与基于内存解耦的弹性部署\cite{zhangTowards2021}，持久内存解耦亦已被用于云原生关系数据库\cite{ruanPersistent2023}。
 \subsection{新型内存体系对数据管理机制的挑战}
-将全文问题归纳为三类失配：动态数据位置与显式映射元数据之间的\textbf{数据表示失配}，本地数据结构与远程访问成本之间的\textbf{数据布局失配}，以及单体管理组件与异构资源之间的\textbf{管理功能失配}。
+将全文问题归纳为三类失配：动态数据位置与显式映射元数据之间的\textbf{数据表示失配}，本地数据结构与远程访问成本之间的\textbf{数据布局失配}，以及单体管理组件与异构资源之间的\textbf{管理功能失配}。写时复制类机制必须由软件维护数据位置关系\cite{liuDudetm2017,marmolLibpm2018,liCtfs2022}，远程多版本访问要按往返次数与传输量重新权衡\cite{zhangMotor2024,binnigEnd2016}，单体缓存管理器则难以匹配资源非对称架构\cite{caoPolardb2021,zhangTowards2021}。
 
 \section{国内外研究现状}
 \subsection{持久内存数据管理}
-综述原地更新、日志、写时复制、地址映射与崩溃一致性机制。
+综述原地更新、日志、写时复制、地址映射与崩溃一致性机制。原地更新一侧以持久事务内存与硬件日志为代表\cite{herlihyTransactional1993,wuArchtm2021,gencCrafty2020,castroSpht2021,krishnanDurable2020,zhangSilo2023,guPisces2019,yeSpecpmt2023}；写时复制一侧通过重定向与解耦规避原子写约束\cite{liuDudetm2017,caiHoop2020,niSsp2019,bhattacharyyaNvmr2022}，日志结构化的键值引擎与图存储则从数据组织侧减少原地写\cite{chenFlatstore2020,wangXpgraph2022}；地址映射一侧尝试用硬件页表或连续分配替代软件索引\cite{marmolLibpm2018,liCtfs2022,kadekodiWinefs2021,mathurNew2007}；崩溃一致性则依赖持久事务算法与恢复理论\cite{correiaRomulus2018,assaTl4x2023,chakrabartiAtlas2014,bernsteinConcurrency1987}。
 \subsection{远程与解耦内存数据组织}
-综述 RDMA 数据结构、远程指针追踪、批量访问和内存池化研究。
+综述 RDMA 数据结构、远程指针追踪、批量访问和内存池化研究。单边 RDMA 键值存储与可扩展哈希\cite{mitchellUsing2013,zuoOne2021}、写优化的分布式索引\cite{wangSherman2022,anMarlin2023,luoSmart2023,liRolex2023,luDex2024,minSephash2024,wangOptimizing2024}构成主要线索；机架级资源池化与网内内存管理进一步改变了数据路径\cite{katrinisRack2016,leeMind2021}。
 \subsection{多版本数据管理}
-综述链式、连续式和分层式版本布局，以及版本索引与垃圾回收机制。
+综述链式、连续式和分层式版本布局，以及版本索引与垃圾回收机制。并发控制的基础可追溯至两阶段封锁与乐观方法\cite{bernsteinConcurrency1987,kungOn1981}；内存数据库中的时间戳与多版本实现见\cite{tuSpeedy2013,weiUnifying2021}，只读事务的时延最优性见\cite{luSnow2016}；面向解耦内存的分布式事务与多版本组织是近年重点\cite{chenFast2016,dragojevicFarm2014,shamisFast2019,schuhXenic2021,jiangAurogon2022,zhangFord2022,luScythe2024,zhangMotor2024}；网络时延与争用对事务划分的影响亦有系统研究\cite{binnigEnd2016,zamanianEnd2017,zamanianChiller2020,dingCentiman2015,guoReleasing2021,weiCharacterizing2021}。
 \subsection{云原生数据库缓存管理}
-综述 MN 中心、CN 中心及分布式缓存管理方案。
+综述 MN 中心、CN 中心及分布式缓存管理方案。MN 中心方案把缓存或持久化职责放到内存节点侧\cite{caoPolardb2021,zhangTowards2021,ruanPersistent2023}，CN 中心方案把缓存留在计算节点侧\cite{verbitskiAmazon2017,antonopoulosSocrates2019,yangPolardb2024,liGaussdb2024}；操作系统与分层内存一侧的替换、迁移与写回研究提供了对照\cite{stonebrakerOperating1981,leisLeanstore2018,weinerTmo2022,xiangNomad2024,zhongManaging2024,liPond2023}。
 \subsection{现有研究的不足}
 归纳传统方案对本地、均衡、紧耦合成本模型的依赖，并明确本文的研究边界。
 

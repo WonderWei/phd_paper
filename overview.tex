@@ -3,43 +3,57 @@
 
 \section{新型内存体系结构}
 \subsection{持久内存}
-介绍字节寻址、持久化域、缓存刷新和写入特征。
+介绍字节寻址、持久化域、缓存刷新和写入特征。持久内存沿用内存总线与缓存层级，写操作需显式持久化，其带宽与写时延特征决定了数据组织必须以批量、连续访问为主\cite{izraelevitzBasic2019,yangEmpirical2020,xiangCharacterizing2022,wangCharacterizing2020}；介质本体的读写下限与磨损特性见器件研究\cite{leeArchitecting2009,wongPhase2010,hadyPlatform2017}，面向开发者的接口与持久化语义见\cite{scargallProgramming2020}。
 \subsection{CXL 内存}
-介绍 CXL 协议、设备附加内存和内存扩展/池化场景。
+介绍 CXL 协议、设备附加内存和内存扩展/池化场景。CXL 在缓存一致性语义下提供内存扩展与共享\cite{cxlConsortium2025}，设备侧 SSD 与内存语义存储的融合已有原型\cite{jungHello2022,kwonCache2023}，面向云平台的池化与分层管理见\cite{liPond2023,zhongManaging2024}，将 CXL 内存用作持久内存的可行性亦有实践评估\cite{fridmanCxl2023,goukDirectcxl2022}。
 \subsection{RDMA 远程内存}
-介绍单边/双边操作、往返时延、带宽与远程 CPU 参与程度。
+介绍单边/双边操作、往返时延、带宽与远程 CPU 参与程度。单边读与双边 RPC 的代价模型不同，直接决定数据结构能否避免远程节点 CPU 参与\cite{kaliaUsing2014,kaliaFasst2016,mitchellUsing2013}；工程指南与大规模部署经验见\cite{kaliaDesign2016,guoRdma2016}，RDMA 语义的表达能力与远程持久内存的访问特征见\cite{redaRdma2022,weiCharacterizing2021}。
 \subsection{解耦内存池}
-说明容量弹性、资源池化和故障域变化。
+说明容量弹性、资源池化和故障域变化。解耦内存从机架内共享\cite{limDisaggregated2009}走向分布式操作系统视图\cite{shanLeGo2018}和远程内存抽象\cite{aguileraRemote2018,guoClio2022}，本地—远程统一层次的组织方式见\cite{zhongUnimem2024}，前程内存与交换式内存卸载则是操作系统侧的对应实现\cite{guEfficient2017,amaroCan2020,ruanAifm2020}。
 \subsection{云原生 CN--MN--SN 架构}
-描述三类节点的职责、资源禀赋及数据路径。
+描述三类节点的职责、资源禀赋及数据路径。三层解耦的代表系统包括 PolarDB Serverless\cite{caoPolardb2021}、GaussDB\cite{liGaussdb2024}与多主形态的 PolarDB-MP\cite{yangPolardb2024}，存算分离与远程日志服务路线见 Aurora\cite{verbitskiAmazon2017}、Socrates\cite{antonopoulosSocrates2019}与 Taurus\cite{depoutovitchTaurus2023}。
 
 \section{数据管理的基本功能}
 \subsection{数据寻址与地址映射}
+地址映射是数据寻址的核心元数据。文件系统以索引节点与扩展树描述位置\cite{mathurNew2007}，reflink 等共享机制进一步把位置关系表达为区间映射\cite{linuxkernelXfs}，持久内存文件系统进一步用大页与映射粒度换取寻址效率\cite{kadekodiWinefs2021}，库层抽象与连续分配方案则尝试把位置关系交给硬件页表\cite{marmolLibpm2018,liCtfs2022}。
 \subsection{数据版本与数据布局}
+多版本布局以链式、连续式与分层式为主。内存数据库的版本组织与时间戳管理见\cite{tuSpeedy2013,weiUnifying2021}，只读事务的时延下界约束了版本布局的可选空间\cite{luSnow2016}，面向解耦内存的多版本组织见\cite{zhangMotor2024,zhangFord2022}。
 \subsection{缓存、迁移与写回}
+缓存管理需在替换、迁移与写回之间分配资源\cite{stonebrakerOperating1981}；LeanStore 以内存为中心扩展数据管理边界\cite{leisLeanstore2018}，透明内存卸载与分层迁移见\cite{weinerTmo2022,xiangNomad2024}，虚拟化环境下的 CXL 分层管理见\cite{zhongManaging2024}。
 \subsection{元数据与并发协调}
+并发协调依赖封锁、时间戳与乐观校验三类基本机制\cite{bernsteinConcurrency1987,kungOn1981}，锁复用与提前释放可降低热点争用\cite{chakrabartiAtlas2014,guoReleasing2021}，基于水印的弹性并发控制见\cite{dingCentiman2015}。
 
 \section{新型内存体系下的数据访问成本}
 \subsection{元数据访问与维护成本}
+元数据成本既包含空间占用，也包含访问路径上的额外跳数；软件索引与硬件映射之间的重复维护是主要来源之一\cite{marmolLibpm2018,liCtfs2022}。
 \subsection{远程访问往返时延}
+远程往返次数往往比单次传输量更能决定性能\cite{binnigEnd2016,zamanianEnd2017}，争用条件下的执行策略需按网络能力重新划分\cite{zamanianChiller2020}。
 \subsection{数据传输量与带宽竞争}
+批量读取可以摊薄往返开销，但会带来传输放大\cite{caiEfficient2018,weiCharacterizing2021}；RDMA 的带宽竞争在多层解耦架构中尤为突出\cite{guoRdma2016}。
 \subsection{持久化写入与写放大}
+持久化写入需要刷新缓存并保证顺序，写时复制与非原地更新会引入额外写放大\cite{liuDudetm2017,caiHoop2020,niSsp2019}，影子子页与重命名机制则尝试消除冗余写\cite{niSsp2019,bhattacharyyaNvmr2022}。
 \subsection{CPU、容量与网络资源成本}
+在资源非对称架构中，CPU、容量与网络带宽的分配相互牵制，单体管理组件难以同时优化三者\cite{caoPolardb2021,zhangTowards2021,liPond2023}。
 
 \section{传统数据管理机制的三类失配}
 \subsection{数据表示失配}
-分析软件显式位置元数据与硬件地址映射能力之间的重复。
+分析软件显式位置元数据与硬件地址映射能力之间的重复。写时复制与重定向类机制必须自行维护位置关系\cite{liuDudetm2017,marmolLibpm2018,liCtfs2022}，而硬件页表已具备同等表达能力。
 \subsection{数据布局失配}
-分析链式指针追踪与固定连续布局在远程环境中的时延、带宽和容量矛盾。
+分析链式指针追踪与固定连续布局在远程环境中的时延、带宽和容量矛盾。链式版本布局导致串行往返\cite{zhangMotor2024}，固定连续布局则在版本长度分布偏斜时产生容量与传输放大\cite{zhangMotor2024,binnigEnd2016}。
 \subsection{管理功能放置失配}
-分析单体缓存管理器在资源非对称架构中的 CPU 弹性和带宽竞争问题。
+分析单体缓存管理器在资源非对称架构中的 CPU 弹性和带宽竞争问题。MN 中心与 CN 中心两类设计各自受限于一侧资源\cite{caoPolardb2021,verbitskiAmazon2017}，容量悬崖与数据迂回传输进一步放大了这一矛盾\cite{zhangTowards2021,ruanPersistent2023}。
 
 \section{本文的统一设计原则}
 \subsection{复用硬件已有能力}
+优先复用硬件已有的地址映射与一致性能力，避免在软件层重复维护等价元数据\cite{liCtfs2022,marmolLibpm2018}。
 \subsection{聚合昂贵的远程访问}
+把多次远程往返合并为批量访问，是降低往返开销的主要手段\cite{caiEfficient2018,weiCharacterizing2021}。
 \subsection{根据运行环境自适应调整}
+访问粒度应按网络时延、带宽与版本分布动态调整\cite{binnigEnd2016,zamanianChiller2020}。
 \subsection{按资源属性解耦管理功能}
+把计算密集、时延敏感与带宽密集任务分别放置在更匹配的资源层\cite{caoPolardb2021,zhangTowards2021}。
 \subsection{区分核心状态与可重建辅助状态}
+持久化与恢复只需保证核心状态，辅助索引可重建，从而降低持久化开销\cite{correiaRomulus2018,assaTl4x2023}。
 
 \section{本章小结}
 给出后续三章共享的概念、成本指标和评价维度。

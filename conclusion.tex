@@ -2,15 +2,24 @@
 \chapter{总结与展望}
 
 \section{全文总结}
-围绕新型内存体系结构下的数据管理失配，从数据表示、数据布局和管理功能三个层次总结研究问题、方法、主要结果及相互关系。
+围绕新型内存体系结构下的数据管理失配，从数据表示、数据布局和管理功能三个层次总结研究问题、方法、主要结果及相互关系。全文的出发点在于：持久内存与 CXL 改变了介质特性\cite{izraelevitzBasic2019,cxlConsortium2025}，解耦与三层架构改变了资源边界\cite{caoPolardb2021,shanLeGo2018}，而现有数据管理机制仍沿用本地、均衡、紧耦合的成本模型\cite{stonebrakerOperating1981,binnigEnd2016}。
 \section{主要研究结论}
 \subsection{硬件辅助寻址机制的结论}
+复用虚拟—物理地址映射可显著降低写时复制的位置元数据开销\cite{liuDudetm2017,liCtfs2022}。
 \subsection{自适应多版本组织机制的结论}
+层次化块式布局在网络往返与容量弹性之间取得更好平衡\cite{zhangMotor2024,caiEfficient2018}。
 \subsection{资源感知缓存管理机制的结论}
+按资源属性拆分缓存管理任务可同时缓解 CPU 弹性与带宽竞争问题\cite{caoPolardb2021,zhangTowards2021}。
 \section{未来研究方向}
 \subsection{CXL 原生数据管理}
+CXL 内存池与分层为地址空间与一致性带来新的设计空间\cite{cxlConsortium2025,liPond2023,zhongManaging2024}。
 \subsection{面向动态负载的自适应数据布局}
+粒度与布局的在线决策仍需解决统计滞后与策略振荡\cite{zamanianChiller2020}。
 \subsection{跨层数据管理机制}
+表示、布局与功能放置三个层次的协同尚缺乏统一代价模型\cite{binnigEnd2016,zamanianEnd2017}。
 \subsection{数据布局与缓存管理协同}
+版本布局与页面迁移的交互需要联合优化\cite{xiangNomad2024,weinerTmo2022}。
 \subsection{持久化与故障恢复一体化}
+核心状态与辅助状态的划分可进一步简化恢复路径\cite{correiaRomulus2018,assaTl4x2023}。
 \subsection{面向异构内存的自动策略选择}
+按工作负载与硬件条件自动选择机制组合，是工程落地的关键\cite{leisLeanstore2018,zhongManaging2024}。

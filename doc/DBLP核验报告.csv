@@ -1,0 +1,120 @@
+﻿BibTeX key,类型,核验结果,DBLP题名,DBLP出处,年份,页码,相似度
+leeArchitecting2009,inproceedings,存在且一致,Architecting phase change memory as a scalable dram alternative.,ISCA,2009,2-13,1.0
+yoonEfficient2014,article,存在且一致,Efficient Data Mapping and Buffering Techniques for Multilevel Cell Phase-Change Memories.,ACM Trans. Archit. Code Optim.,2014,40:1-40:25,1.0
+wongPhase2010,article,存在且一致,Phase Change Memory.,Proc. IEEE,2010,2201-2227,1.0
+kawaharaScalable2011,article,存在且一致,Scalable Spin-Transfer Torque RAM Technology for Normally-Off Computing.,IEEE Des. Test Comput.,2011,52-63,1.0
+strukovMissing2008,article,"DBLP不收录Nature(条目真实,著名文献)",The Missing Memristor Found,Nature 453(7191),2008,159-164,0.378
+jungHello2022,inproceedings,存在且一致,"Hello bytes, bye blocks: PCIe storage meets compute express link for memory expansion (CXL-SSD).",HotStorage,2022,45-51,1.0
+scargallProgramming2020,book,"书籍(DBLP一般不收录,人工确认)",Programming Persistent Memory: A Comprehensive Guide for Developers,Springer Nature,2020,,
+marmolLibpm2018,article,存在且一致,LibPM: Simplifying Application Usage of Persistent Memory.,ACM Trans. Storage,2018,34:1-34:18,1.0
+mathurNew2007,inproceedings,DBLP无收录,,,,,0
+gencCrafty2020,inproceedings,存在且一致,"Crafty: efficient, HTM-compatible persistent transactions.",PLDI,2020,59-74,1.0
+yeSpecpmt2023,inproceedings,存在且一致(已按DBLP修正:第三作者Xipeng Shen),SpecPMT: Speculative Logging for Resolving Crash Consistency Overhead of Persistent Memory.,ASPLOS,2023,762-777,1.0
+izraelevitzBasic2019,misc,存在且一致,Basic Performance Measurements of the Intel Optane DC Persistent Memory Module.,CoRR,2019,,1.0
+yangEmpirical2020,inproceedings,存在且一致,An Empirical Guide to the Behavior and Use of Scalable Persistent Memory.,login Usenix Mag.,2020,,1.0
+liuSide2023,inproceedings,存在且一致,Side-Channel Attacks on Optane Persistent Memory.,USENIX Security Symposium,2023,6807-6824,1.0
+wangReplicating2023,inproceedings,存在且一致,Replicating Persistent Memory Key-Value Stores with Efficient RDMA Abstraction.,OSDI,2023,441-459,1.0
+liuDudetm2017,inproceedings,存在且一致,DudeTM: Building Durable Transactions with Decoupling for Persistent Memory.,ASPLOS,2017,329-343,1.0
+correiaRomulus2018,inproceedings,存在且一致,Romulus: Efficient Algorithms for Persistent Transactional Memory.,SPAA,2018,271-282,1.0
+wuArchtm2021,inproceedings,存在且一致,"ArchTM: Architecture-Aware, High Performance Transaction for Persistent Memory.",FAST,2021,141-153,1.0
+krishnanDurable2020,inproceedings,存在且一致,Durable Transactional Memory Can Scale with Timestone.,ASPLOS,2020,335-349,1.0
+caiHoop2020,inproceedings,存在且一致,HOOP: Efficient Hardware-Assisted Out-of-Place Update for Non-Volatile Memory.,ISCA,2020,584-596,1.0
+assaTl4x2023,inproceedings,存在且一致,TL4x: Buffered Durable Transactions on Disk as Fast as in Memory.,PPoPP,2023,245-259,1.0
+caoCharacterizing2020,inproceedings,存在且一致,"Characterizing, Modeling, and Benchmarking RocksDB Key-Value Workloads at Facebook.",FAST,2020,209-223,1.0
+kadekodiWinefs2021,inproceedings,存在且一致,WineFS: a hugepage-aware file system for persistent memory that ages gracefully.,SOSP,2021,804-818,1.0
+mikolajickFeram2001,article,存在且一致,FeRAM technology for high density applications.,Microelectron. Reliab.,2001,947-950,1.0
+hadyPlatform2017,article,存在且一致,Platform Storage Performance With 3D XPoint Technology.,Proc. IEEE,2017,1822-1833,1.0
+wangCharacterizing2020,inproceedings,存在且一致,Characterizing and Modeling Non-Volatile Memory Systems.,MICRO,2020,496-508,1.0
+xiangCharacterizing2022,inproceedings,存在且一致,Characterizing the performance of intel optane persistent memory: a close look at its on-DIMM buffering.,EuroSys,2022,488-505,1.0
+kioxiaXlflash2024,misc,DBLP无收录,,,,,0
+kennedySamsung2022,misc,DBLP无收录,,,,,0
+cxlConsortium2025,misc,"标准规范(DBLP不收录,官网可访问)",Compute Express Link (CXL),computeexpresslink.org,2024,290:1-290:37,0.571
+zhangMotor2024,inproceedings,存在且一致,Motor: Enabling Multi-Versioning for Distributed Transactions on Disaggregated Memory.,OSDI,2024,801-819,1.0
+caiEfficient2018,article,存在且一致,Efficient Distributed Memory Management with RDMA and Caching.,Proc. VLDB Endow.,2018,1604-1617,1.0
+fridmanCxl2023,inproceedings,存在且一致,CXL Memory as Persistent Memory for Disaggregated HPC: A Practical Approach.,SC Workshops,2023,983-994,1.0
+kwonCache2023,inproceedings,存在且一致,Cache in Hand: Expander-Driven CXL Prefetcher for Next Generation CXL-SSD.,HotStorage,2023,24-30,1.0
+chenFlatstore2020,inproceedings,存在且一致,FlatStore: An Efficient Log-Structured Key-Value Storage Engine for Persistent Memory.,ASPLOS,2020,1077-1091,1.0
+wangXpgraph2022,inproceedings,存在且一致,XPGraph: XPline-Friendly Persistent Memory Graph Stores for Large-Scale Evolving Graphs.,MICRO,2022,1308-1325,1.0
+herlihyTransactional1993,inproceedings,存在且一致,Transactional Memory: Architectural Support for Lock-Free Data Structures.,ISCA,1993,289-300,1.0
+zhangSilo2023,inproceedings,存在且一致,Silo: Speculative Hardware Logging for Atomic Durability in Persistent Memory.,HPCA,2023,651-663,1.0
+castroSpht2021,inproceedings,存在且一致,SPHT: Scalable Persistent Hardware Transactions.,FAST,2021,155-169,1.0
+baldassinNvphtm2020,inproceedings,存在且一致,NV-PhTM: An Efficient Phase-Based Transactional System for Non-volatile Memory.,Euro-Par,2020,477-492,1.0
+kungOn1981,article,存在且一致,On Optimistic Methods for Concurrency Control.,ACM Trans. Database Syst.,1981,213-226,1.0
+bernsteinConcurrency1987,book,"书籍(DBLP一般不收录,人工确认)",Concurrency Control and Recovery in Database Systems,Addison-Wesley,1987,,
+liCtfs2022,article,存在且一致,ctFS: Replacing File Indexing with Hardware Memory Translation through Contiguous File Allocation for Persistent Memory.,ACM Trans. Storage,2022,30:1-30:24,1.0
+linuxkernelXfs,misc,DBLP无收录,,,,,0
+minhStamp2008,inproceedings,存在且一致,STAMP: Stanford Transactional Applications for Multi-Processing.,IISWC,2008,35-46,1.0
+guPisces2019,inproceedings,存在且一致,Pisces: A Scalable and Efficient Persistent Transactional Memory.,USENIX ATC,2019,913-928,1.0
+cloutierRdtscp2023,misc,DBLP无收录,,,,,0
+kashyapScalable2018,inproceedings,存在且一致,A scalable ordering primitive for multicore machines.,EuroSys,2018,34:1-34:15,1.0
+chakrabartiAtlas2014,article,存在且一致,Atlas: leveraging locks for non-volatile memory consistency.,OOPSLA,2014,433-452,1.0
+disselkoenPrime2017,inproceedings,存在且一致,Prime+Abort: A Timer-Free High-Precision L3 Cache Attack using Intel TSX.,USENIX Security Symposium,2017,51-67,1.0
+jangBreaking2016,inproceedings,存在且一致,Breaking Kernel Address Space Layout Randomization with Intel TSX.,CCS,2016,380-392,1.0
+intelTsxAdvisory2019,misc,DBLP无收录,,,,,0
+canellaFallout2019,inproceedings,存在且一致(已按DBLP修正:题名Meltdown-Resistant+作者顺序),Fallout: Leaking Data on Meltdown-resistant CPUs.,CCS,,,0
+linuxTsx2019,misc,DBLP无收录,,,,,0
+bhattacharyyaNvmr2022,inproceedings,存在且一致,NvMR: non-volatile memory renaming for intermittent computing.,ISCA,2022,1-13,1.0
+niSsp2019,inproceedings,存在且一致,SSP: Eliminating Redundant Writes in Failure-Atomic NVRAMs via Shadow Sub-Paging.,MICRO,2019,836-848,1.0
+anMarlin2023,inproceedings,存在且一致,Marlin: A Concurrent and Write-Optimized B+-tree Index on Disaggregated Memory.,ICPP,2023,695-704,1.0
+chenFast2016,inproceedings,存在且一致,Fast and general distributed transactions using RDMA and HTM.,EuroSys,2016,26:1-26:17,1.0
+dingCentiman2015,inproceedings,存在且一致,"Centiman: elastic, high performance optimistic concurrency control by watermarking.",SoCC,2015,262-275,1.0
+farberSap2012,article,存在且一致,SAP HANA database: data management for modern business applications.,SIGMOD Rec.,2011,45-51,1.0
+guoClio2022,inproceedings,存在且一致,Clio: a hardware-software co-designed disaggregated memory system.,ASPLOS,2022,417-433,1.0
+guoReleasing2021,inproceedings,存在且一致,Releasing Locks As Early As You Can: Reducing Contention of Hotspots by Violating Two-Phase Locking.,SIGMOD Conference,2021,658-670,1.0
+huangTidb2020,article,存在且一致,TiDB: A Raft-based HTAP Database.,Proc. VLDB Endow.,2020,3072-3084,1.0
+jiangAurogon2022,inproceedings,存在且一致,Aurogon: Taming Aborts in All Phases for Distributed In-Memory Transactions.,FAST,2022,217-232,1.0
+katrinisRack2016,inproceedings,存在且一致,Rack-scale disaggregated cloud data centers: The dReDBox project vision.,DATE,2016,690-695,1.0
+leeMind2021,inproceedings,存在且一致,MIND: In-Network Memory Management for Disaggregated Data Centers.,SOSP,2021,488-504,1.0
+liRolex2023,inproceedings,存在且一致,ROLEX: A Scalable RDMA-oriented Learned Key-Value Store for Disaggregated Memory Systems.,FAST,2023,99-114,1.0
+limDisaggregated2009,inproceedings,存在且一致,Disaggregated memory for expansion and sharing in blade servers.,ISCA,2009,267-278,1.0
+luDex2024,article,存在且一致,DEX: Scalable Range Indexing on Disaggregated Memory.,Proc. VLDB Endow.,2024,2603-2616,1.0
+luSnow2016,inproceedings,存在且一致,The SNOW Theorem and Latency-Optimal Read-Only Transactions.,OSDI,2016,135-150,1.0
+luScythe2024,article,存在且一致,Scythe: A Low-latency RDMA-enabled Distributed Transaction System for Disaggregated Memory.,ACM Trans. Archit. Code Optim.,2024,57:1-57:26,1.0
+luoSmart2023,inproceedings,存在且一致,SMART: A High-Performance Adaptive Radix Tree for Disaggregated Memory.,OSDI,2023,553-571,1.0
+minSephash2024,article,存在且一致,SepHash: A Write-Optimized Hash Index On Disaggregated Memory via Separate Segment Structure.,Proc. VLDB Endow.,2024,1091-1104,1.0
+mitchellUsing2013,inproceedings,存在且一致,"Using One-Sided RDMA Reads to Build a Fast, CPU-Efficient Key-Value Store.",USENIX ATC,2013,103-114,1.0
+redaRdma2022,inproceedings,存在且一致,"RDMA is Turing complete, we just did not know it yet!",NSDI,2022,71-85,1.0
+schuhXenic2021,inproceedings,存在且一致,Xenic: SmartNIC-Accelerated Distributed Transactions.,SOSP,2021,740-755,1.0
+shamisFast2019,inproceedings,存在且一致,Fast General Distributed Transactions with Opacity.,SIGMOD Conference,2019,433-448,1.0
+tuSpeedy2013,inproceedings,存在且一致,Speedy transactions in multicore in-memory databases.,SOSP,2013,18-32,1.0
+wangRdma2023,article,存在且一致,RDMA-Enabled Concurrency Control Protocols for Transactions in the Cloud Era.,IEEE Trans. Cloud Comput.,2023,798-810,1.0
+wangSherman2022,inproceedings,存在且一致,Sherman: A Write-Optimized Distributed B+Tree Index on Disaggregated Memory.,SIGMOD Conference,2022,1033-1048,1.0
+wangOptimizing2024,article,存在且一致,Optimizing LSM-based indexes for disaggregated memory.,VLDB J.,2024,1813-1836,1.0
+weiUnifying2021,inproceedings,存在且一致,Unifying Timestamp with Transaction Ordering for MVCC with Decentralized Scalar Timestamp.,NSDI,2021,357-372,1.0
+weiCharacterizing2021,article,存在且一致,Characterizing and Optimizing Remote Persistent Memory with RDMA and NVM.,USENIX ATC,2021,523-536,1.0
+zamanianChiller2020,inproceedings,存在且一致,Chiller: Contention-centric Transaction Execution and Data Partitioning for Modern Networks.,SIGMOD Conference,2020,511-526,1.0
+zhangFord2022,inproceedings,存在且一致,FORD: Fast One-sided RDMA-based Distributed Transactions for Disaggregated Persistent Memory.,FAST,2022,51-68,1.0
+zhangTowards2021,article,存在且一致,Towards Cost-Effective and Elastic Cloud Database Deployment via Memory Disaggregation.,Proc. VLDB Endow.,2021,1900-1912,1.0
+zuoOne2021,inproceedings,存在且一致,One-sided RDMA-Conscious Extendible Hashing for Disaggregated Memory.,USENIX ATC,2021,15-29,1.0
+aguileraRemote2018,inproceedings,存在且一致,Remote regions: a simple abstraction for remote memory.,USENIX ATC,2018,775-787,1.0
+amaroCan2020,inproceedings,存在且一致,Can far memory improve job throughput?,EuroSys,2020,14:1-14:16,1.0
+antonopoulosSocrates2019,inproceedings,存在且一致,Socrates: The New SQL Server in the Cloud.,SIGMOD Conference,2019,1743-1756,1.0
+binnigEnd2016,article,存在且一致,The End of Slow Networks: It&apos;s Time for a Redesign.,Proc. VLDB Endow.,2016,528-539,0.96
+caoPolardb2021,inproceedings,存在且一致,PolarDB Serverless: A Cloud Native Database for Disaggregated Data Centers.,SIGMOD Conference,2021,2477-2489,1.0
+depoutovitchTaurus2023,article,存在且一致,Taurus MM: bringing multi-master to the cloud.,Proc. VLDB Endow.,2023,3488-3500,1.0
+difallahOltp2013,article,存在且一致,OLTP-Bench: An Extensible Testbed for Benchmarking Relational Databases.,Proc. VLDB Endow.,2013,277-288,1.0
+dragojevicFarm2014,inproceedings,存在且一致,FaRM: Fast Remote Memory.,NSDI,2014,401-414,1.0
+goukDirectcxl2022,inproceedings,存在且一致,"Direct Access, High-Performance Memory Disaggregation with DirectCXL.",USENIX ATC,2022,287-294,1.0
+grayTransaction1993,book,"书籍(DBLP一般不收录,人工确认)",Transaction Processing: Concepts and Techniques,Morgan Kaufmann,1993,,
+guEfficient2017,inproceedings,存在且一致,Efficient Memory Disaggregation with Infiniswap.,NSDI,2017,649-667,1.0
+guoRdma2016,inproceedings,存在且一致,RDMA over Commodity Ethernet at Scale.,SIGCOMM,2016,202-215,1.0
+ibmTatp2009,misc,DBLP无收录,,,,,0
+kaliaUsing2014,inproceedings,存在且一致,Using RDMA efficiently for key-value services.,SIGCOMM,2014,295-306,1.0
+kaliaDesign2016,inproceedings,存在且一致,Design Guidelines for High Performance RDMA Systems.,login Usenix Mag.,2016,,1.0
+kaliaFasst2016,inproceedings,存在且一致,"FaSST: Fast, Scalable and Simple Distributed Transactions with Two-Sided (RDMA) Datagram RPCs.",OSDI,2016,185-201,1.0
+leisLeanstore2018,inproceedings,存在且一致,LeanStore: In-Memory Data Management beyond Main Memory.,ICDE,2018,185-196,1.0
+liGaussdb2024,article,存在且一致,GaussDB: A Cloud-Native Multi-Primary Database with Compute-Memory-Storage Disaggregation.,Proc. VLDB Endow.,2024,3786-3798,1.0
+liPond2023,inproceedings,存在且一致,Pond: CXL-Based Memory Pooling Systems for Cloud Platforms.,ASPLOS,2023,574-587,1.0
+ruanPersistent2023,inproceedings,存在且一致,Persistent Memory Disaggregation for Cloud-Native Relational Databases.,ASPLOS,2023,498-512,1.0
+ruanAifm2020,inproceedings,存在且一致,"AIFM: High-Performance, Application-Integrated Far Memory.",OSDI,2020,315-332,1.0
+shanLeGo2018,inproceedings,存在且一致,"LegoOS: A Disseminated, Distributed OS for Hardware Resource Disaggregation.",OSDI,2018,69-87,1.0
+stonebrakerOperating1981,article,存在且一致,Operating System Support for Database Management.,Commun. ACM,1981,412-418,1.0
+tpcTpcc1992,misc,DBLP无收录,,,,,0
+verbitskiAmazon2017,inproceedings,存在且一致,Amazon Aurora: Design Considerations for High Throughput Cloud-Native Relational Databases.,SIGMOD Conference,2017,1041-1052,1.0
+wangCase2022,article,存在且一致,The Case for Distributed Shared-Memory Databases with RDMA-Enabled Memory Disaggregation.,Proc. VLDB Endow.,2022,15-22,1.0
+weinerTmo2022,inproceedings,存在且一致,TMO: transparent memory offloading in datacenters.,ASPLOS,2022,609-621,1.0
+xiangNomad2024,inproceedings,存在且一致,Nomad: Non-Exclusive Memory Tiering via Transactional Page Migration.,OSDI,2024,19-35,1.0
+yangPolardb2024,inproceedings,存在且一致,PolarDB-MP: A Multi-Primary Cloud-Native Database via Disaggregated Shared Memory.,SIGMOD Conference Companion,2024,295-308,1.0
+zamanianEnd2017,article,存在且一致,The End of a Myth: Distributed Transactions Can Scale.,CoRR,2016,,1.0
+zhongManaging2024,inproceedings,存在且一致,Managing Memory Tiers with CXL in Virtualized Environments.,OSDI,2024,37-56,1.0
+zhongUnimem2024,inproceedings,存在且一致,UniMem: Redesigning Disaggregated Memory within A Unified Local-Remote Memory Hierarchy.,USENIX ATC,2024,463-477,1.0

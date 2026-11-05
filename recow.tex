@@ -2,40 +2,50 @@
 \chapter{面向持久内存的硬件辅助数据寻址机制}
 
 \section{引言}
-从写时复制的非原地更新出发，说明数据位置变化及显式映射元数据带来的空间和访问开销。
+从写时复制的非原地更新出发，说明数据位置变化及显式映射元数据带来的空间和访问开销。写时复制类持久事务通过重定向副本实现非原地更新\cite{liuDudetm2017,caiHoop2020}，但重定向关系本身仍需软件元数据描述，并随数据位置变化持续更新\cite{marmolLibpm2018,liCtfs2022}。
 \section{问题分析与设计目标}
 \subsection{写时复制的数据路径与元数据开销}
+写时复制的数据路径包含副本分配、内容拷贝、指针切换与旧副本回收四个阶段，每个阶段都要访问并更新映射元数据\cite{liuDudetm2017}；持久内存上的元数据更新还需保证崩溃一致性\cite{correiaRomulus2018,assaTl4x2023}。
 \subsection{页粒度映射与缓存行粒度更新的矛盾}
+硬件地址映射以页为粒度\cite{liCtfs2022}，而数据库更新常以缓存行甚至更小粒度发生，页粒度重定向会造成页内其余数据的冗余拷贝与写放大\cite{niSsp2019,caiHoop2020}。
 \subsection{设计目标与适用边界}
-
+设计目标是在不牺牲持久性的前提下，把数据位置关系从软件元数据转移到既有地址映射机制，并把更新粒度下沉到缓存行\cite{liCtfs2022,niSsp2019}。
 \section{ReCoW 总体设计}
-说明用户态事务库、内核组件、地址映射和持久化元数据之间的关系。
+说明用户态事务库、内核组件、地址映射和持久化元数据之间的关系。总体结构参照持久事务内存的用户态/内核职责划分\cite{gencCrafty2020,wuArchtm2021,castroSpht2021}，并把页表作为位置关系的唯一权威来源\cite{marmolLibpm2018,liCtfs2022}。
 \section{基于虚拟地址重映射的数据寻址方法}
-研究如何将软件维护的数据位置关系转移到已有的虚拟—物理地址映射机制。
+研究如何将软件维护的数据位置关系转移到已有的虚拟—物理地址映射机制。该方法复用处理器已有的地址翻译能力，使重定向只体现为页表项改写\cite{liCtfs2022,marmolLibpm2018}，从而避免软件索引的额外跳数与空间开销\cite{kadekodiWinefs2021,mathurNew2007}。
 \section{混合粒度数据跟踪机制}
 \subsection{页粒度地址映射}
+页粒度映射承担位置重定向，块大小与映射粒度共同决定地址翻译的覆盖范围\cite{kadekodiWinefs2021}。
 \subsection{缓存行粒度更新记录}
+缓存行粒度记录只保存页内被修改的行，从而与页粒度重定向互补\cite{niSsp2019,bhattacharyyaNvmr2022}。
 \subsection{混合元数据组织}
+混合元数据由页表项与行级位图共同构成，兼顾空间开销与访问精度\cite{caiHoop2020,niSsp2019}。
 
 \section{内核—用户协同管理机制}
 \subsection{系统调用与批量请求接口}
+系统调用接口把批量重映射请求合并提交，避免每次更新都陷入内核\cite{mathurNew2007,marmolLibpm2018}。
 \subsection{惰性重映射与批处理优化}
+惰性重映射延迟页表更新直到必要时刻，批处理则把多个页表更新合并为一次地址空间操作\cite{marmolLibpm2018,liCtfs2022}。
 \subsection{元数据检查点}
+检查点把持久化元数据定期落入持久域，使恢复时无需扫描全部页表\cite{correiaRomulus2018,assaTl4x2023}。
 
 \section{并发控制与一致性保证}
 \subsection{并发访问协调}
+并发访问协调沿用乐观并发控制与事务内存的基本框架\cite{kungOn1981,herlihyTransactional1993}，相位式持久事务则为批量提交提供了另一种组织方式\cite{baldassinNvphtm2020}；重映射操作本身需单独加锁保护\cite{chakrabartiAtlas2014}。
 \subsection{提交顺序与原子可见性}
+提交顺序由持久化屏障与顺序原语保证\cite{kashyapScalable2018,chakrabartiAtlas2014}，原子可见性依赖页表切换的原子性。
 \subsection{崩溃一致性与恢复流程}
-
+崩溃一致性通过检查点加日志重放实现\cite{correiaRomulus2018,assaTl4x2023,bernsteinConcurrency1987}，恢复时以页表与检查点为准重建行级记录。
 \section{实验评估}
 \subsection{实验环境、工作负载与对比系统}
+实验平台为 Intel Optane DC 持久内存\cite{izraelevitzBasic2019,yangEmpirical2020}，工作负载采用 STAMP 事务负载\cite{minhStamp2008}与 RocksDB 键值负载\cite{caoCharacterizing2020}，对比系统包括 DudeTM\cite{liuDudetm2017}、HOOP\cite{caiHoop2020}、ArchTM\cite{wuArchtm2021}、SPHT\cite{castroSpht2021}、Timestone\cite{krishnanDurable2020}、Silo\cite{zhangSilo2023}、Pisces\cite{guPisces2019}与 SpecPMT\cite{yeSpecpmt2023}。
 \subsection{整体性能与扩展性}
 \subsection{元数据规模与访问成本}
 \subsection{写放大与持久化开销}
 \subsection{关键机制消融实验}
 \subsection{PM/CXL 时延敏感性分析}
-
 \section{本章讨论}
-讨论页粒度重映射的适用范围、内核参与成本与可移植性。
+讨论页粒度重映射的适用范围、内核参与成本与可移植性。重映射依赖硬件地址翻译与事务内存支持，而 Intel TSX 的可用性受微码与内核策略限制\cite{intelTsxAdvisory2019,linuxTsx2019}，相关侧信道攻击也影响其部署\cite{disselkoenPrime2017,jangBreaking2016,canellaFallout2019}；计时与顺序原语的可移植性需结合具体平台评估\cite{cloutierRdtscp2023,kashyapScalable2018}。
 \section{本章小结}
 从数据表示层总结 ReCoW 如何缓解动态数据位置与软件显式寻址之间的失配，并引出远程环境下的数据组织问题。

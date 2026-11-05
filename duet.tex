@@ -2,48 +2,66 @@
 \chapter{面向云原生解耦数据库的资源感知缓存管理机制}
 
 \section{引言}
-说明计算、内存和存储资源独立扩展后，传统单体缓存管理器的任务放置不再匹配资源属性。
+说明计算、内存和存储资源独立扩展后，传统单体缓存管理器的任务放置不再匹配资源属性。缓存管理原本是操作系统与数据库之间的职责划分问题\cite{stonebrakerOperating1981}，在三层解耦架构中却被拆散到不同资源层上\cite{caoPolardb2021}。
 \section{问题分析与设计目标}
 \subsection{云原生 CN--MN--SN 架构与资源非对称性}
+三类节点独立扩展意味着计算、容量与带宽不再是同比例资源\cite{caoPolardb2021,liGaussdb2024}，节点间网络成为新的瓶颈资源\cite{guoRdma2016}。
 \subsection{MN 中心设计的 CPU 弹性失配}
+MN 中心设计把缓存与替换策略放在内存节点侧，使内存节点的 CPU 成为扩展性瓶颈\cite{caoPolardb2021,zhangTowards2021}。
 \subsection{CN 中心设计的带宽竞争}
+CN 中心设计把缓存留在计算节点侧，但缺页换入与脏页写回会同时占用网络带宽\cite{verbitskiAmazon2017,antonopoulosSocrates2019}。
 \subsection{容量悬崖与数据迂回传输}
+缓存容量不足时命中率骤降，数据在 CN、MN 与 SN 之间反复移动\cite{zhangTowards2021,ruanPersistent2023}，前程内存与交换式卸载中的同类现象亦可对照\cite{guEfficient2017,amaroCan2020}。
 \subsection{设计目标与适用边界}
+设计目标是把不同类型的缓存管理任务放到资源属性更匹配的层上，而非整体迁移\cite{liPond2023,zhongManaging2024}。
 
 \section{缓存管理任务的资源属性分析}
-将替换策略、前台换入、脏页卸载和后台写回分别归纳为计算密集、时延敏感或带宽密集任务。
+将替换策略、前台换入、脏页卸载和后台写回分别归纳为计算密集、时延敏感或带宽密集任务。替换策略需要频繁更新元数据，属于计算密集任务\cite{leisLeanstore2018}；前台换入位于事务关键路径上，对时延最敏感\cite{caoPolardb2021}；脏页写回可异步执行，属带宽密集任务\cite{weinerTmo2022,xiangNomad2024}。
 \section{Duet 总体架构}
 \subsection{Primo 与 Secondo 的功能划分}
+Primo 位于计算节点侧承担时延敏感任务，Secondo 位于内存节点侧承担带宽密集任务\cite{caoPolardb2021,zhangTowards2021}。
 \subsection{控制路径与数据路径}
+控制路径传递元数据与队列状态，数据路径承担页面搬运\cite{yangPolardb2024,liGaussdb2024}。
 \subsection{页面状态与生命周期}
+页面状态刻画于 CN、MN、SN 三级之间的迁移与所有权\cite{depoutovitchTaurus2023}。
 
 \section{CN 侧缓存策略与前台换入}
 \subsection{替换策略执行}
+替换策略在 CN 侧执行，避免占用 MN 的 CPU\cite{leisLeanstore2018}。
 \subsection{批量远程元数据访问}
+批量访问把多个页面的元数据请求合并，减少往返次数\cite{caiEfficient2018}。
 \subsection{缺页处理与页面准入}
+页面准入需区分冷热与扫描型访问，防止一次性访问污染缓存\cite{weinerTmo2022}。
 
 \section{非阻塞脏页卸载与 MN 侧异步写回}
 \subsection{脏页暂存}
+脏页先暂存于 MN 侧缓冲，避免前台事务等待持久化\cite{ruanPersistent2023}。
 \subsection{牺牲页预留与队列发布}
+牺牲页预留保证卸载有可用空间，队列发布则以原子操作完成所有权转移\cite{zhangTowards2021}。
 \subsection{后台异步持久化}
+后台按带宽预算异步写入存储节点\cite{weinerTmo2022,xiangNomad2024}。
 
 \section{元数据管理与分布式协调}
 \subsection{远程元数据目录}
+远程元数据目录集中记录页面位置与状态，避免逐节点查询\cite{caoPolardb2021,yangPolardb2024}。
 \subsection{TxLock 事务访问协调}
+TxLock 以事务粒度协调前台访问，减少锁状态在节点间往返\cite{guoReleasing2021,dingCentiman2015}。
 \subsection{IOLock 页面迁移协调}
+IOLock 以页面粒度协调迁移与写回，保证同一页面不被并发搬运\cite{xiangNomad2024}。
 \subsection{前台事务与后台写回的并发关系}
+前台事务与后台写回通过所有权与版本号解耦，避免全局封锁\cite{bernsteinConcurrency1987,grayTransaction1993}。
 
 \section{持久性与故障恢复}
-明确确认边界、脏页所有权、队列恢复和节点故障处理。
+明确确认边界、脏页所有权、队列恢复和节点故障处理。确认边界决定事务提交与页面持久化的先后关系\cite{grayTransaction1993}，队列恢复依赖持久化的所有权记录\cite{ruanPersistent2023}，节点故障按故障域隔离处理\cite{zhongManaging2024}。
 \section{实验评估}
 \subsection{实验环境、工作负载与对比系统}
+工作负载采用 SmallBank、TPC-C 与 TATP\cite{tpcTpcc1992,ibmTatp2009}，并通过 OLTP-Bench 统一驱动\cite{difallahOltp2013}；对比系统包括 PolarDB Serverless\cite{caoPolardb2021}、PolarDB-MP\cite{yangPolardb2024}、Aurora\cite{verbitskiAmazon2017}、Socrates\cite{antonopoulosSocrates2019}、GaussDB\cite{liGaussdb2024}与 Taurus\cite{depoutovitchTaurus2023}。
 \subsection{SmallBank、TPC-C 与 TATP 整体性能}
 \subsection{缓存容量与写回压力敏感性}
 \subsection{MN CPU 与网络带宽敏感性}
 \subsection{延迟分解与资源利用率}
 \subsection{TxLock/IOLock 与批处理机制消融实验}
-
 \section{本章讨论}
-讨论资源非对称假设、故障模型、多个 MN/SN 扩展和公平性问题。
+讨论资源非对称假设、故障模型、多个 MN/SN 扩展和公平性问题。多个 MN 或多个 SN 时，元数据目录与队列发布需扩展为分区结构\cite{yangPolardb2024,liGaussdb2024}；内存池化与分层管理方案提供了容量侧的扩展路径\cite{liPond2023,zhongManaging2024}，但网络带宽的公平分配仍需单独机制\cite{guoRdma2016}。
 \section{本章小结}
 从管理功能层总结按资源属性拆分缓存管理任务所带来的资源协同效果。

@@ -1,0 +1,120 @@
+﻿BibTeX key,类型,已录入题名,Crossref DOI,Crossref 刊名/会议,Crossref 年份,Crossref 页码,Crossref 卷,核验结果
+leeArchitecting2009,inproceedings,Architecting Phase Change Memory as a Scalable DRAM Alternative,10.1145/1555754.1555758,Proceedings of the 36th annual international symposium on Computer architecture,2009,2-13,,一致
+yoonEfficient2014,article,Efficient Data Mapping and Buffering Techniques for Multilevel Cell Phase-Change Memories,10.1145/2669365,ACM Transactions on Architecture and Code Optimization,2014,1-25,11,一致
+wongPhase2010,article,Phase Change Memory,,,,,,未匹配（最高相似度 0.53）
+kawaharaScalable2011,article,Scalable Spin-Transfer Torque RAM Technology for Normally-Off Computing,10.1109/mdt.2010.97,IEEE Design &amp; Test of Computers,2011,52-63,28,一致
+strukovMissing2008,article,The Missing Memristor Found,10.1038/nature06932,Nature,2008,80-83,453,一致
+jungHello2022,inproceedings,"Hello Bytes, Bye Blocks: PCIe Storage Meets Compute Express Link for Memory Expansion (CXL-SSD)",,,,,,未匹配（最高相似度 0.56）
+scargallProgramming2020,book,Programming Persistent Memory: A Comprehensive Guide for Developers,,,,,,未匹配（最高相似度 0.49）
+marmolLibpm2018,article,LibPM: Simplifying Application Usage of Persistent Memory,,,,,,未匹配（最高相似度 0.33）
+mathurNew2007,inproceedings,The New ext4 Filesystem: Current Status and Future Plans,,,,,,未匹配（最高相似度 0.55）
+gencCrafty2020,inproceedings,"CRAFTY: Efficient, HTM-Compatible Persistent Transactions",,,,,,未匹配（最高相似度 0.37）
+yeSpecpmt2023,inproceedings,SpecPMT: Speculative Logging for Resolving Crash Consistency Overhead of Persistent Memory,10.1145/3575693.3575696,"Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2",2023,762-777,,一致
+izraelevitzBasic2019,misc,Basic Performance Measurements of the Intel Optane DC Persistent Memory Module,,,,,,未匹配（最高相似度 0.43）
+yangEmpirical2020,inproceedings,An Empirical Guide to the Behavior and Use of Scalable Persistent Memory,,,,,,未匹配（最高相似度 0.54）
+liuSide2023,inproceedings,Side-Channel Attacks on Optane Persistent Memory,,,,,,未匹配（最高相似度 0.58）
+wangReplicating2023,inproceedings,Replicating Persistent Memory Key-Value Stores with Efficient RDMA Abstraction,,,,,,未匹配（最高相似度 0.52）
+liuDudetm2017,inproceedings,DudeTM: Building Durable Transactions with Decoupling for Persistent Memory,,,,,,未匹配（最高相似度 0.15）
+correiaRomulus2018,inproceedings,Romulus: Efficient Algorithms for Persistent Transactional Memory,10.1145/3437801.3441586,Proceedings of the 26th ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming,2021,1-15,,差异: 年份 2018→2021; 页码 271-282→1-15
+wuArchtm2021,inproceedings,"ArchTM: Architecture-Aware, High Performance Transaction for Persistent Memory",,,,,,未匹配（最高相似度 0.50）
+krishnanDurable2020,inproceedings,Durable Transactional Memory Can Scale with Timestone,10.1145/3373376.3378483,Proceedings of the Twenty-Fifth International Conference on Architectural Support for Programming Languages and Operating Systems,2020,335-349,,一致
+caiHoop2020,inproceedings,HOOP: Efficient Hardware-Assisted Out-of-Place Update for Non-Volatile Memory,10.1109/isca45697.2020.00055,2020 ACM/IEEE 47th Annual International Symposium on Computer Architecture (ISCA),2020,584-596,,一致
+assaTl4x2023,inproceedings,TL4x: Buffered Durable Transactions on Disk as Fast as in Memory,,,,,,未匹配（最高相似度 0.30）
+caoCharacterizing2020,inproceedings,"Characterizing, Modeling, and Benchmarking RocksDB Key-Value Workloads at Facebook",,,,,,未匹配（最高相似度 0.41）
+kadekodiWinefs2021,inproceedings,WineFS: A Hugepage-Aware File System for Persistent Memory That Ages Gracefully,,,,,,未匹配（最高相似度 0.27）
+mikolajickFeram2001,article,FeRAM Technology for High Density Applications,10.1016/s0026-2714(01)00049-x,Microelectronics Reliability,2001,947-950,41,一致
+hadyPlatform2017,article,Platform Storage Performance with 3D XPoint Technology,10.1109/jproc.2017.2731776,Proceedings of the IEEE,2017,1822-1833,105,一致
+wangCharacterizing2020,inproceedings,Characterizing and Modeling Non-Volatile Memory Systems,10.1109/micro50266.2020.00049,2020 53rd Annual IEEE/ACM International Symposium on Microarchitecture (MICRO),2020,496-508,,一致
+xiangCharacterizing2022,inproceedings,Characterizing the Performance of Intel Optane Persistent Memory: A Close Look at Its on-DIMM Buffering,10.1145/3492321.3519556,Proceedings of the Seventeenth European Conference on Computer Systems,2022,488-505,,低相似度（疑似误匹配）
+kioxiaXlflash2024,misc,XL-Flash Memory,,,,,,未匹配（最高相似度 0.62）
+kennedySamsung2022,misc,Samsung Memory-Semantic CXL SSD at FMS 2022 Powered by AMD Xilinx,,,,,,未匹配（最高相似度 0.33）
+cxlConsortium2025,misc,Compute Express Link (CXL),10.4236/jcc.2023.116006,Journal of Computer and Communications,2023,94-102,11,低相似度（疑似误匹配）: 年份 2025→2023
+zhangMotor2024,inproceedings,MOTOR: Enabling Multi-Versioning for Distributed Transactions on Disaggregated Memory,,,,,,未匹配（最高相似度 0.70）
+caiEfficient2018,article,Efficient Distributed Memory Management with RDMA and Caching,10.14778/3236187.3236209,Proceedings of the VLDB Endowment,2018,1604-1617,11,一致
+fridmanCxl2023,inproceedings,CXL Memory as Persistent Memory for Disaggregated HPC: A Practical Approach,10.1145/3624062.3624175,"Proceedings of the SC '23 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis",2023,983-994,,一致
+kwonCache2023,inproceedings,Cache in Hand: Expander-Driven CXL Prefetcher for Next Generation CXL-SSD,10.1145/3599691.3603406,Proceedings of the 15th ACM Workshop on Hot Topics in Storage and File Systems,2023,24-30,,一致
+chenFlatstore2020,inproceedings,FlatStore: An Efficient Log-Structured Key-Value Storage Engine for Persistent Memory,10.1145/3373376.3378515,Proceedings of the Twenty-Fifth International Conference on Architectural Support for Programming Languages and Operating Systems,2020,1077-1091,,一致
+wangXpgraph2022,inproceedings,XPGraph: XPline-Friendly Persistent Memory Graph Stores for Large-Scale Evolving Graphs,10.1109/micro56248.2022.00091,2022 55th IEEE/ACM International Symposium on Microarchitecture (MICRO),2022,1308-1325,,一致
+herlihyTransactional1993,inproceedings,Transactional Memory: Architectural Support for Lock-Free Data Structures,10.1109/isca.1993.698569,Proceedings of the 20th Annual International Symposium on Computer Architecture,None,289-300,,差异: 年份 1993→None
+zhangSilo2023,inproceedings,Silo: Speculative Hardware Logging for Atomic Durability in Persistent Memory,10.1109/hpca56546.2023.10071034,2023 IEEE International Symposium on High-Performance Computer Architecture (HPCA),2023,651-663,,一致
+castroSpht2021,inproceedings,SPHT: Scalable Persistent Hardware Transactions,,,,,,未匹配（最高相似度 0.56）
+baldassinNvphtm2020,inproceedings,NV-PHTM: An Efficient Phase-Based Transactional System for Non-Volatile Memory,10.1007/978-3-030-57675-2_30,Lecture Notes in Computer Science,2020,477-492,,一致
+kungOn1981,article,On Optimistic Methods for Concurrency Control,10.1145/319566.319567,ACM Transactions on Database Systems,1981,213-226,6,一致
+bernsteinConcurrency1987,book,Concurrency Control and Recovery in Database Systems,,,,,,未匹配（最高相似度 0.66）
+liCtfs2022,article,ctfs: Replacing File Indexing with Hardware Memory Translation through Contiguous File Allocation for Persistent Memory,10.1145/3565026,ACM Transactions on Storage,2022,1-24,18,一致
+linuxkernelXfs,misc,XFS Reflink Support for Persistent Memory,10.1007/978-1-4842-4932-1_3,Programming Persistent Memory,2020,31-54,,低相似度（疑似误匹配）: 年份 2019→2020
+minhStamp2008,inproceedings,STAMP: Stanford Transactional Applications for Multi-Processing,10.1109/iiswc.2008.4636089,2008 IEEE International Symposium on Workload Characterization,2008,35-46,,一致
+guPisces2019,inproceedings,Pisces: A Scalable and Efficient Persistent Transactional Memory,,,,,,未匹配（最高相似度 0.55）
+cloutierRdtscp2023,misc,RDTSCP: x86 Instruction Reference,,,,,,未匹配（最高相似度 0.42）
+kashyapScalable2018,inproceedings,A Scalable Ordering Primitive for Multicore Machines,10.1145/3190508.3190510,Proceedings of the Thirteenth EuroSys Conference,2018,1-15,,一致
+chakrabartiAtlas2014,article,Atlas: Leveraging Locks for Non-Volatile Memory Consistency,,,,,,未匹配（最高相似度 0.58）
+disselkoenPrime2017,inproceedings,Prime+Abort: A Timer-Free High-Precision L3 Cache Attack Using Intel TSX,,,,,,未匹配（最高相似度 0.00）
+jangBreaking2016,inproceedings,Breaking Kernel Address Space Layout Randomization with Intel TSX,10.1145/2976749.2978321,Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security,2016,380-392,,差异: 页码 387-398→380-392
+intelTsxAdvisory2019,misc,Intel TSX Asynchronous Abort Advisory (INTEL-SA-00270),,,,,,未匹配（最高相似度 0.41）
+canellaFallout2019,inproceedings,Fallout: Leaking Data on Meltdown-Immune CPUs,,,,,,未匹配（最高相似度 0.35）
+linuxTsx2019,misc,Linux Kernel Disables Intel TSX,,,,,,未匹配（最高相似度 0.48）
+bhattacharyyaNvmr2022,inproceedings,NVMR: Non-Volatile Memory Renaming for Intermittent Computing,10.1145/3840403,Communications of the ACM,2026,99-108,69,低相似度（疑似误匹配）: 年份 2022→2026; 页码 1-13→99-108
+niSsp2019,inproceedings,SSP: Eliminating Redundant Writes in Failure-Atomic NVRAMs via Shadow Sub-Paging,,,,,,未匹配（最高相似度 0.28）
+anMarlin2023,inproceedings,Marlin: A Concurrent and Write-Optimized B+-Tree Index on Disaggregated Memory,,,,,,未匹配（最高相似度 0.00）
+chenFast2016,inproceedings,Fast and General Distributed Transactions Using RDMA and HTM,10.1145/2901318.2901349,Proceedings of the Eleventh European Conference on Computer Systems,2016,1-17,,一致
+dingCentiman2015,inproceedings,"Centiman: Elastic, High Performance Optimistic Concurrency Control by Watermarking",,,,,,未匹配（最高相似度 0.50）
+farberSap2012,article,SAP HANA Database: Data Management for Modern Business Applications,,,,,,未匹配（最高相似度 0.29）
+guoClio2022,inproceedings,Clio: A Hardware-Software Co-Designed Disaggregated Memory System,10.1145/3503222.3507762,Proceedings of the 27th ACM International Conference on Architectural Support for Programming Languages and Operating Systems,2022,417-433,,一致
+guoReleasing2021,inproceedings,Releasing Locks as Early as You Can: Reducing Contention of Hotspots by Violating Two-Phase Locking,10.1145/3448016.3457294,Proceedings of the 2021 International Conference on Management of Data,2021,658-670,,一致
+huangTidb2020,article,TiDB: A Raft-Based HTAP Database,,,,,,未匹配（最高相似度 0.24）
+jiangAurogon2022,inproceedings,Aurogon: Taming Aborts in All Phases for Distributed In-Memory Transactions,,,,,,未匹配（最高相似度 0.35）
+katrinisRack2016,inproceedings,Rack-Scale Disaggregated Cloud Data Centers: The dReDBox Project Vision,10.3850/9783981537079_1014,"Proceedings of the 2016 Design, Automation &amp; Test in Europe Conference &amp; Exhibition (DATE)",2016,690-695,,一致
+leeMind2021,inproceedings,Mind: In-Network Memory Management for Disaggregated Data Centers,,,,,,未匹配（最高相似度 0.49）
+liRolex2023,inproceedings,ROLEX: A Scalable RDMA-Oriented Learned Key-Value Store for Disaggregated Memory Systems,10.1145/3620674,ACM Transactions on Storage,2023,1-30,19,低相似度（疑似误匹配）: 页码 99-114→1-30
+limDisaggregated2009,inproceedings,Disaggregated Memory for Expansion and Sharing in Blade Servers,10.1145/1555754.1555789,Proceedings of the 36th annual international symposium on Computer architecture,2009,267-278,,一致
+luDex2024,article,DEX: Scalable Range Indexing on Disaggregated Memory,10.14778/3675034.3675050,Proceedings of the VLDB Endowment,2024,2603-2616,17,一致
+luSnow2016,inproceedings,The SNOW Theorem and Latency-Optimal Read-Only Transactions,,,,,,未匹配（最高相似度 0.55）
+luScythe2024,article,Scythe: A Low-Latency RDMA-Enabled Distributed Transaction System for Disaggregated Memory,10.1145/3666004,ACM Transactions on Architecture and Code Optimization,2024,1-26,21,一致
+luoSmart2023,inproceedings,SMART: A High-Performance Adaptive Radix Tree for Disaggregated Memory,,,,,,未匹配（最高相似度 0.67）
+minSephash2024,article,SepHash: A Write-Optimized Hash Index on Disaggregated Memory via Separate Segment Structure,10.14778/3641204.3641218,Proceedings of the VLDB Endowment,2024,1091-1104,17,一致
+mitchellUsing2013,inproceedings,"Using One-Sided RDMA Reads to Build a Fast, CPU-Efficient Key-Value Store",,,,,,未匹配（最高相似度 0.39）
+redaRdma2022,inproceedings,"RDMA is Turing Complete, We Just Did Not Know It Yet!",,,,,,未匹配（最高相似度 0.35）
+schuhXenic2021,inproceedings,Xenic: SmartNIC-Accelerated Distributed Transactions,,,,,,未匹配（最高相似度 0.41）
+shamisFast2019,inproceedings,Fast General Distributed Transactions with Opacity,10.1145/3299869.3300069,Proceedings of the 2019 International Conference on Management of Data,2019,433-448,,一致
+tuSpeedy2013,inproceedings,Speedy Transactions in Multicore In-Memory Databases,10.1145/2517349.2522713,Proceedings of the Twenty-Fourth ACM Symposium on Operating Systems Principles,2013,18-32,,一致
+wangRdma2023,article,RDMA-Enabled Concurrency Control Protocols for Transactions in the Cloud Era,10.1109/tcc.2021.3116516,IEEE Transactions on Cloud Computing,2023,798-810,11,一致
+wangSherman2022,inproceedings,Sherman: A Write-Optimized Distributed B+Tree Index on Disaggregated Memory,10.1145/3514221.3517824,Proceedings of the 2022 International Conference on Management of Data,2022,1033-1048,,一致
+wangOptimizing2024,article,Optimizing LSM-Based Indexes for Disaggregated Memory,10.1007/s00778-024-00863-y,The VLDB Journal,2024,1813-1836,33,一致
+weiUnifying2021,inproceedings,Unifying Timestamp with Transaction Ordering for MVCC with Decentralized Scalar Timestamp,,,,,,未匹配（最高相似度 0.37）
+weiCharacterizing2021,article,Characterizing and Optimizing Remote Persistent Memory with RDMA and NVM,,,,,,未匹配（最高相似度 0.41）
+zamanianChiller2020,inproceedings,Chiller: Contention-Centric Transaction Execution and Data Partitioning for Modern Networks,10.1145/3318464.3389724,Proceedings of the 2020 ACM SIGMOD International Conference on Management of Data,2020,511-526,,一致
+zhangFord2022,inproceedings,FORD: Fast One-Sided RDMA-Based Distributed Transactions for Disaggregated Persistent Memory,10.1145/3582012,ACM Transactions on Storage,2023,1-35,19,低相似度（疑似误匹配）: 年份 2022→2023; 页码 51-68→1-35
+zhangTowards2021,article,Towards Cost-Effective and Elastic Cloud Database Deployment via Memory Disaggregation,10.14778/3467861.3467877,Proceedings of the VLDB Endowment,2021,1900-1912,14,一致
+zuoOne2021,inproceedings,One-Sided RDMA-Conscious Extendible Hashing for Disaggregated Memory,10.1145/3511895,ACM Transactions on Storage,2022,1-29,18,低相似度（疑似误匹配）: 年份 2021→2022; 页码 15-29→1-29
+aguileraRemote2018,inproceedings,Remote Regions: A Simple Abstraction for Remote Memory,,,,,,未匹配（最高相似度 0.35）
+amaroCan2020,inproceedings,Can Far Memory Improve Job Throughput?,10.1145/3342195.3387522,Proceedings of the Fifteenth European Conference on Computer Systems,2020,1-16,,一致
+antonopoulosSocrates2019,inproceedings,Socrates: The New SQL Server in the Cloud,,,,,,未匹配（最高相似度 0.43）
+binnigEnd2016,article,The End of Slow Networks: It's Time for a Redesign,,,,,,未匹配（最高相似度 0.67）
+caoPolardb2021,inproceedings,PolarDB Serverless: A Cloud Native Database for Disaggregated Data Centers,,,,,,未匹配（最高相似度 0.44）
+depoutovitchTaurus2023,article,Taurus MM: Bringing Multi-Master to the Cloud,10.14778/3611540.3611542,Proceedings of the VLDB Endowment,2023,3488-3500,16,一致
+difallahOltp2013,article,OLTP-Bench: An Extensible Testbed for Benchmarking Relational Databases,,,,,,未匹配（最高相似度 0.43）
+dragojevicFarm2014,inproceedings,FaRM: Fast Remote Memory,,,,,,未匹配（最高相似度 0.00）
+goukDirectcxl2022,inproceedings,"Direct Access, High-Performance Memory Disaggregation with DirectCXL",,,,,,未匹配（最高相似度 0.35）
+grayTransaction1993,book,Transaction Processing: Concepts and Techniques,,,,,,未匹配（最高相似度 0.57）
+guEfficient2017,inproceedings,Efficient Memory Disaggregation with Infiniswap,,,,,,未匹配（最高相似度 0.37）
+guoRdma2016,inproceedings,RDMA over Commodity Ethernet at Scale,10.1145/2934872.2934908,Proceedings of the 2016 ACM SIGCOMM Conference,2016,202-215,,一致
+ibmTatp2009,misc,Telecommunication Application Transaction Processing Benchmark Description,,,,,,未匹配（最高相似度 0.57）
+kaliaUsing2014,inproceedings,Using RDMA Efficiently for Key-Value Services,10.1145/2619239.2626299,Proceedings of the 2014 ACM conference on SIGCOMM,2014,295-306,,一致
+kaliaDesign2016,inproceedings,Design Guidelines for High Performance RDMA Systems,,,,,,未匹配（最高相似度 0.47）
+kaliaFasst2016,inproceedings,"FaSST: Fast, Scalable and Simple Distributed Transactions with Two-Sided (RDMA) Datagram RPCs",,,,,,未匹配（最高相似度 0.45）
+leisLeanstore2018,inproceedings,LeanStore: In-Memory Data Management Beyond Main Memory,10.1109/icde.2018.00026,2018 IEEE 34th International Conference on Data Engineering (ICDE),2018,185-196,,一致
+liGaussdb2024,article,GaussDB: A Cloud-Native Multi-Primary Database with Compute-Memory-Storage Disaggregation,10.14778/3685800.3685806,Proceedings of the VLDB Endowment,2024,3786-3798,17,一致
+liPond2023,inproceedings,Pond: CXL-Based Memory Pooling Systems for Cloud Platforms,10.1145/3575693.3578835,"Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2",2023,574-587,,一致
+ruanPersistent2023,inproceedings,Persistent Memory Disaggregation for Cloud-Native Relational Databases,10.1145/3582016.3582055,"Proceedings of the 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 3",2023,498-512,,一致
+ruanAifm2020,inproceedings,"AIFM: High-Performance, Application-Integrated Far Memory",,,,,,未匹配（最高相似度 0.32）
+shanLeGo2018,inproceedings,"LegoOS: A Disseminated, Distributed OS for Hardware Resource Disaggregation",,,,,,未匹配（最高相似度 0.56）
+stonebrakerOperating1981,article,Operating System Support for Database Management,10.1145/358699.358703,Communications of the ACM,1981,412-418,24,一致
+tpcTpcc1992,misc,TPC Benchmark C: Standard Specification,,,,,,未匹配（最高相似度 0.33）
+verbitskiAmazon2017,inproceedings,Amazon Aurora: Design Considerations for High Throughput Cloud-Native Relational Databases,,,,,,未匹配（最高相似度 0.26）
+wangCase2022,article,The Case for Distributed Shared-Memory Databases with RDMA-Enabled Memory Disaggregation,10.14778/3561261.3561263,Proceedings of the VLDB Endowment,2022,15-22,16,一致
+weinerTmo2022,inproceedings,TMO: Transparent Memory Offloading in Datacenters,10.1145/3746651,Communications of the ACM,2025,102-110,68,差异: 年份 2022→2025; 页码 609-621→102-110
+xiangNomad2024,inproceedings,Nomad: Non-Exclusive Memory Tiering via Transactional Page Migration,,,,,,未匹配（最高相似度 0.48）
+yangPolardb2024,inproceedings,PolarDB-MP: A Multi-Primary Cloud-Native Database via Disaggregated Shared Memory,10.1145/3626246.3653377,Companion of the 2024 International Conference on Management of Data,2024,295-308,,一致
+zamanianEnd2017,article,The End of a Myth: Distributed Transactions Can Scale,,,,,,未匹配（最高相似度 0.51）
+zhongManaging2024,inproceedings,Managing Memory Tiers with CXL in Virtualized Environments,,,,,,未匹配（最高相似度 0.42）
+zhongUnimem2024,inproceedings,UniMem: Redesigning Disaggregated Memory within a Unified Local-Remote Memory Hierarchy,,,,,,未匹配（最高相似度 0.45）
