@@ -342,3 +342,10 @@ Temporary Items
 # DBLP reference-audit scratch data and scripts
 doc/work/
 
+# Simulation scripts and experiment scratch (not thesis content)
+docs/growable-sim/
+experiment/
+
+# Python bytecode caches
+__pycache__/
+
